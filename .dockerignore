@@ -1,0 +1,6 @@
+.gitignore
+hello-service
+docker-compose.yaml
+README.md
+Makefile
+architecture.png

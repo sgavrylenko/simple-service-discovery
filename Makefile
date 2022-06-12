@@ -15,3 +15,12 @@ load-test:
 .PHONY: build-hello
 build-hello:
 	docker build hello-service/ -t hello
+
+.PHONY: compose-up
+compose-up:
+	docker compose up --build --scale backend=3
+
+.PHONY: run-requests
+run-requests:
+	while true; do curl localhost:3000/; sleep 1; done
+

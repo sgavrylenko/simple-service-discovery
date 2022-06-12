@@ -1,0 +1,23 @@
+version: '3'
+services:
+  backend:
+    image: hello
+    build:
+      context: ./hello-service/
+    depends_on:
+      - proxy
+    networks:
+      hello: {}
+  proxy:
+    image: proxy
+    build:
+      context: ./
+    ports:
+      - '3000:3000'
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    networks:
+      hello: {}
+
+networks:
+  hello: {}
